@@ -1,4 +1,4 @@
-# Árvores B+ (B+ Trees): Uma Explicação Didática
+# Árvores B+ (B+ Trees)
 
 ## 1. O que é uma Árvore B+?
 
