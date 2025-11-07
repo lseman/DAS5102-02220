@@ -207,4 +207,4 @@ if __name__ == "__main__":
     g.adicionar_aresta("C", "E", 5)
 
     # Plot (se networkx/matplotlib instalados)
-    g.plotar(layout="spring", titulo="Grafo com caminho A→E destacado")
+    g.plotar(layout="spring", titulo="Grafinho")
