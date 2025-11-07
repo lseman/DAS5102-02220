@@ -54,43 +54,6 @@ class Grafo:
         return len(self.adjacencias) == 0
 
     # ──────────────────────────────────────────────────────────────────────
-    # NOVO: BFS (Busca em Largura)
-    # ──────────────────────────────────────────────────────────────────────
-    def bfs(self, origem, alvo=None):
-        """
-        Executa BFS a partir de `origem`.
-        Args:
-            origem: vértice inicial
-            alvo (opcional): se fornecido, para quando `alvo` é alcançado
-        Returns:
-            ordem (list): ordem de visita
-            pais (dict): pai[v] = predecessor de v (origem tem pai None)
-            dist (dict): distâncias em número de arestas a partir de origem
-        """
-        if origem not in self.adjacencias:
-            raise ValueError(f"Origem '{origem}' não pertence ao grafo.")
-
-        visitado = set([origem])
-        fila = deque([origem])
-        pais = {origem: None}
-        dist = {origem: 0}
-        ordem = []
-
-        while fila:
-            u = fila.popleft()
-            ordem.append(u)
-            if alvo is not None and u == alvo:
-                break
-            for v, _peso in self.adjacencias[u]:
-                if v not in visitado:
-                    visitado.add(v)
-                    pais[v] = u
-                    dist[v] = dist[u] + 1
-                    fila.append(v)
-
-        return ordem, pais, dist
-
-    # ──────────────────────────────────────────────────────────────────────
     # Plotagem do grafo
     # ──────────────────────────────────────────────────────────────────────
     def plotar(self, layout="spring", destacar_caminho=None, figsize=(7, 5),
