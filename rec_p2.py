@@ -21,9 +21,9 @@ def algoritmo_a(x, y):
     a, b = x // divisor, x % divisor
     c, d = y // divisor, y % divisor
     
-    ac = karatsuba(a, c)
-    bd = karatsuba(b, d)
-    ad_bc = karatsuba(a + b, c + d) - ac - bd
+    ac = algoritmo_a(a, c)
+    bd = algoritmo_a(b, d)
+    ad_bc = algoritmo_a(a + b, c + d) - ac - bd
     
     return ac * (10 ** (2 * m)) + ad_bc * (10 ** m) + bd
 
@@ -51,13 +51,13 @@ def algoritmo_b(A, B):
     B21 = [[B[i][j] for j in range(mid)] for i in range(mid, n)]
     B22 = [[B[i][j] for j in range(mid, n)] for i in range(mid, n)]
     
-    M1 = strassen(soma(A11, A22), soma(B11, B22))
-    M2 = strassen(soma(A21, A22), B11)
-    M3 = strassen(A11, subtrai(B12, B22))
-    M4 = strassen(A22, subtrai(B21, B11))
-    M5 = strassen(soma(A11, A12), B22)
-    M6 = strassen(subtrai(A21, A11), soma(B11, B12))
-    M7 = strassen(subtrai(A12, A22), soma(B21, B22))
+    M1 = algoritmo_b(soma(A11, A22), soma(B11, B22))
+    M2 = algoritmo_b(soma(A21, A22), B11)
+    M3 = algoritmo_b(A11, subtrai(B12, B22))
+    M4 = algoritmo_b(A22, subtrai(B21, B11))
+    M5 = algoritmo_b(soma(A11, A12), B22)
+    M6 = algoritmo_b(subtrai(A21, A11), soma(B11, B12))
+    M7 = algoritmo_b(subtrai(A12, A22), soma(B21, B22))
     
     C11 = soma(subtrai(soma(M1, M4), M5), M7)
     C12 = soma(M3, M5)
